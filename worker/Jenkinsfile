@@ -9,10 +9,6 @@ pipeline {
                     args '-v $HOME/.m2:/root/.m2'
                 }
             }
-            when {
-                branch 'master'
-                changeset '**/worker/**'
-            }
             steps {
                 echo 'Running build stage'
                 dir('worker') {
@@ -44,10 +40,6 @@ pipeline {
                     image 'maven:3.8.1-adoptopenjdk-11'
                     args '-v $HOME/.m2:/root/.m2'
                 }
-            }
-            when {
-                branch 'master'
-                changeset '**/worker/**'
             }
             steps {
                 echo 'Running package stage'
